@@ -1,19 +1,71 @@
 <!-- resources/js/components/Register.vue -->
 <template>
-    <div class="register">
-      <h2>Register</h2>
-      <form @submit.prevent="register">
-        <input type="text" v-model="name" placeholder="Name" required />
-        <input type="email" v-model="email" placeholder="Email" required />
-        <input type="password" v-model="password" placeholder="Password" required />
-        <input type="password" v-model="password_confirmation" placeholder="Confirm Password" required />
-        <button type="submit">Register</button>
-      </form>
-      <p>Déjà inscrit ? <router-link to="/login">Se connecter</router-link></p>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4">Register</h3>
+              <form @submit.prevent="register">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    v-model="name"
+                    class="form-control"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    v-model="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    v-model="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password_confirmation" class="form-label">Confirm Password</label>
+                  <input
+                    type="password"
+                    id="password_confirmation"
+                    v-model="password_confirmation"
+                    class="form-control"
+                    placeholder="Confirm your password"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-success w-100">
+                  Register
+                </button>
+              </form>
+              <p class="text-center mt-3">
+                Déjà inscrit ? <router-link to="/login">Se connecter</router-link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
   
-<script setup>
+  <script setup>
   import { ref } from 'vue';
   import axios from 'axios';
   import { useRouter } from 'vue-router';
@@ -40,9 +92,6 @@
   </script>
   
   <style scoped>
-  .register {
-    max-width: 300px;
-    margin: auto;
-  }
+  /* Ajoute des styles personnalisés si nécessaire */
   </style>
   

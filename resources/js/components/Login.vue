@@ -1,18 +1,49 @@
 <!-- resources/js/components/Login.vue -->
 <template>
-    <div class="login">
-        <h2>Login</h2>
-        <form @submit.prevent="login">
-        <input type="email" v-model="email" placeholder="Email" required />
-        <input type="password" v-model="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-        </form>
-        <p>Pas encore inscrit ? <router-link to="/register">S'inscrire</router-link></p>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4">Login</h3>
+              <form @submit.prevent="login">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    v-model="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    v-model="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+              <p class="text-center mt-3">
+                Pas encore inscrit ? <router-link to="/register">S'inscrire</router-link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
   
   <script setup>
-
   import { ref } from 'vue';
   import axios from 'axios';
   import { useRouter } from 'vue-router';
@@ -36,9 +67,6 @@
   </script>
   
   <style scoped>
-  .login {
-    max-width: 300px;
-    margin: auto;
-  }
+  /* Ajoute des styles personnalisés si nécessaire */
   </style>
   

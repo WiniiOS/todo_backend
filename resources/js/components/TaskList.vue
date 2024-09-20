@@ -1,16 +1,29 @@
-<!-- resources/js/components/TaskList.vue -->
 <template>
-    <div class="task-list">
-      <h2>My Tasks</h2>
-      <form @submit.prevent="addTask">
-        <input type="text" v-model="newTask" placeholder="Add a new task" required />
-        <button type="submit">Add Task</button>
+    <div class="container mt-5">
+      <h2 class="mb-4 text-center">My Tasks</h2>
+      <form @submit.prevent="addTask" class="input-group mb-3">
+        <input
+          type="text"
+          v-model="newTask"
+          class="form-control"
+          placeholder="Add a new task"
+          required
+        />
+        <button type="submit" class="btn btn-outline-primary">Add Task</button>
       </form>
-      <ul>
-        <li v-for="task in tasks" :key="task.id">
-          <span :class="{ completed: task.is_completed }">{{ task.title }}</span>
-          <button @click="toggleComplete(task)">{{ task.is_completed ? 'Undo' : 'Complete' }}</button>
-          <button @click="deleteTask(task)">Delete</button>
+      <ul class="list-group">
+        <li
+          v-for="task in tasks"
+          :key="task.id"
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <span :class="{ 'text-decoration-line-through': task.is_completed }">{{ task.title }}</span>
+          <div>
+            <button @click="toggleComplete(task)" class="btn btn-sm btn-outline-success me-2">
+              {{ task.is_completed ? 'Undo' : 'Complete' }}
+            </button>
+            <button @click="deleteTask(task)" class="btn btn-sm btn-outline-danger">Delete</button>
+          </div>
         </li>
       </ul>
     </div>
